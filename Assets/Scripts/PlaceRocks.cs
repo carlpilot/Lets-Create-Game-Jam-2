@@ -27,7 +27,7 @@ public class PlaceRocks : MonoBehaviour {
 
 		foreach (GameObject r in rocks) {
 			if (r.transform.position.y < -50) {
-				DestroyImmediate (r);
+				DestroyImmediate (r); 
 			}
 		}
 	}

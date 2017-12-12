@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 209a0cd45a598463bb8efa4530fa2217
+timeCreated: 1513035952
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Goblata Nova
+  fontNames:
+  - Goblata Nova
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

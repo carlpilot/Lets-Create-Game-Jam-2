@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class Bridge : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+	public BridgeActivator[] activators;
+	public bool isClosed;
+	public Material plankMatClosed, plankMatOpen;
+	public Transform plankParent;
+
 	void Update () {
-		
+
+		bool allActivatorsOn = true;
+		foreach (BridgeActivator a in activators) {
+			if (!a.isOn) {
+				allActivatorsOn = false;
+				break;
+			}
+		}
+
+		isClosed = allActivatorsOn;
+
+		if (plankParent != null) {
+			foreach (MeshRenderer mr in plankParent.GetComponentsInChildren<MeshRenderer>()) {
+				mr.material = isClosed ? plankMatClosed : plankMatOpen;
+				mr.GetComponent<Collider> ().enabled = isClosed;
+			}
+		}
 	}
 }

@@ -14,6 +14,7 @@ public class Teleporter : MonoBehaviour {
 			light = GetComponentInChildren<Light> ();
 			particleSystem = GetComponent<ParticleSystem> ();
 		}
+		teleporterActive = true;
 	}
 
 	void Update () {

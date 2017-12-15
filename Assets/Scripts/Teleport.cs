@@ -17,7 +17,12 @@ public class Teleport : MonoBehaviour {
 			if (Physics.Raycast (Camera.main.transform.position, Camera.main.transform.forward, out hit)) {
 				if (hit.transform.tag == "Teleporter") {
 					lastPosition = transform.position;
-					transform.position = hit.transform.position + Vector3.up;
+
+					if (Vector3.Distance (transform.position, hit.transform.position) > 10f) {
+						transform.position = hit.transform.position + Vector3.up;
+					}
+
+					/*
 					if (!hit.transform.GetComponent<Teleporter> ().isLastPositionMarker) {
 						foreach (Teleporter t in FindObjectsOfType<Teleporter>()) {
 							t.teleporterActive = false;
@@ -27,6 +32,7 @@ public class Teleport : MonoBehaviour {
 					} else {
 						Destroy (hit.transform.gameObject);
 					}
+					*/
 				}
 			}
 		}

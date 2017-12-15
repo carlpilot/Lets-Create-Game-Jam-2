@@ -8,6 +8,7 @@ public class Bridge : MonoBehaviour {
 	public bool isClosed;
 	public Material plankMatClosed, plankMatOpen;
 	public Transform plankParent;
+	public Transform[] bridgeSegments;
 
 	void Update () {
 
@@ -23,6 +24,12 @@ public class Bridge : MonoBehaviour {
 
 		if (plankParent != null) {
 			foreach (MeshRenderer mr in plankParent.GetComponentsInChildren<MeshRenderer>()) {
+				mr.material = isClosed ? plankMatClosed : plankMatOpen;
+				mr.GetComponent<Collider> ().enabled = isClosed;
+			}
+		}
+		foreach (Transform t in bridgeSegments) {
+			foreach (MeshRenderer mr in t.GetComponentsInChildren<MeshRenderer>()) {
 				mr.material = isClosed ? plankMatClosed : plankMatOpen;
 				mr.GetComponent<Collider> ().enabled = isClosed;
 			}

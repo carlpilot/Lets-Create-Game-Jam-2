@@ -13,7 +13,7 @@ public class CharacterControls : MonoBehaviour {
 	public float jumpHeight = 2.0f;
 	private bool grounded = false;
 
-
+	public float sprintMultiplier = 2f;
 
 	void Awake() {
 		GetComponent<Rigidbody>().freezeRotation = true;
@@ -25,7 +25,12 @@ public class CharacterControls : MonoBehaviour {
 			// Calculate how fast we should be moving
 			Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			targetVelocity = transform.TransformDirection(targetVelocity);
-			targetVelocity *= speed;
+
+			if (Input.GetKey (KeyCode.LeftShift)) {
+				targetVelocity *= speed * sprintMultiplier;
+			} else {
+				targetVelocity *= speed;
+			}
 
 			// Apply a force that attempts to reach our target velocity
 			Vector3 velocity = GetComponent<Rigidbody>().velocity;

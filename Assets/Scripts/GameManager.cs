@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 	GameObject player;
 	public GameObject winMenu;
 	public GameObject loseMenu;
+	public UnityEngine.UI.Text nextLevelButtonTitle;
 
 	void Start () {
 		instance = this;
@@ -20,31 +21,47 @@ public class GameManager : MonoBehaviour {
 		// Build index correlates directly with level number: 0 = main menu, 1 = level 1, 2 = level 2 and so on
 	}
 
-	public static void ReloadLevel () {
+	public void Reload () {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 
-	public static void MainMenu () {
+	public void MainMenu () {
 		LoadLevel (0);
 	}
 
-	public static void LevelSelection () {
+	public void LevelSelection () {
 		SceneManager.LoadScene ("levelselection");
+	}
+
+	public void NextLevel () {
+		if (SceneManager.GetActiveScene ().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+		} else {
+			nextLevelButtonTitle.text = "This is the last level.";
+		}
 	}
 
 	void Update () {
 		if (player.transform.position.y < -30f || player.transform.position.sqrMagnitude > 10000) {
-			EndGame ();
+			LoseGame ();
 		}
 	}
 
 	public void EndGame () {
 		player.GetComponent<Rigidbody> ().isKinematic = true;
+		Destroy (Camera.main.GetComponent<SimpleSmoothMouseLook> ()); // We don't want the mouse look going when you're clicking round the win menu
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 	}
 
 	public void WinGame () {
+		EndGame ();
 		PlayerPrefs.SetInt ("HasWonLevel" + SceneManager.GetActiveScene ().buildIndex, 1);
+		winMenu.SetActive (true);
+	}
+
+	public void LoseGame () {
+		EndGame ();
+		loseMenu.SetActive(true);
 	}
 }

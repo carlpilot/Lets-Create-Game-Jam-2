@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour {
 
-	void OnTriggerEnter (Collider col) {
-		if (col.tag == "Player") {
+	void Update () {
+		if (Vector3.Distance (transform.position, GameObject.FindGameObjectWithTag ("Player").transform.position) < 2.5f) {
 			GameManager.instance.WinGame ();
 		}
 	}

@@ -27,12 +27,15 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
 		// Set target direction for the character body to its inital state.
 		if (characterBody) targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
+
+		Screen.lockCursor = lockCursor;
 	}
 
 	void Update()
 	{
 		// Ensure the cursor is always locked when set
-		Screen.lockCursor = lockCursor;
+		// Carl: nvm
+//		Screen.lockCursor = lockCursor;
 
 		// Allow the script to clamp based on a desired target value.
 		var targetOrientation = Quaternion.Euler(targetDirection);

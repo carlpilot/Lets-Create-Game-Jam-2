@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene ("levelselection");
 	}
 
+	public void Quit () {
+		Application.Quit ();
+	}
+
 	public void NextLevel () {
 		if (SceneManager.GetActiveScene ().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
@@ -42,8 +46,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (player.transform.position.y < -30f || player.transform.position.sqrMagnitude > 10000) {
-			LoseGame ();
+		if (SceneManager.GetActiveScene ().name.ToUpper ().Contains ("LEVEL")) {
+			if (player.transform.position.y < -30f || player.transform.position.sqrMagnitude > 10000) {
+				LoseGame ();
+			}
 		}
 	}
 

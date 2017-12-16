@@ -19,7 +19,9 @@ public class Teleport : MonoBehaviour {
 					lastPosition = transform.position;
 
 					if (Vector3.Distance (transform.position, hit.transform.position) > 10f) {
-						transform.position = hit.transform.position + Vector3.up;
+						if (hit.transform.GetComponent<Teleporter> ().teleporterActive) {
+							transform.position = hit.transform.position + Vector3.up;
+						}
 					}
 
 					/*

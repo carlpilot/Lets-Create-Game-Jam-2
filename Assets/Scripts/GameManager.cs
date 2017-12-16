@@ -47,26 +47,32 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 		if (SceneManager.GetActiveScene ().name.ToUpper ().Contains ("LEVEL")) {
-			if (player.transform.position.y < -30f || player.transform.position.sqrMagnitude > 10000) {
+			if (player.transform.position.y < -0.5f || player.transform.position.sqrMagnitude > 20000) {
 				LoseGame ();
 			}
 		}
 	}
 
 	public void EndGame () {
-		player.GetComponent<Rigidbody> ().isKinematic = true;
+		//player.GetComponent<Rigidbody> ().isKinematic = true;
+
+		Destroy(player.GetComponent<CharacterControls> ());
 		Destroy (Camera.main.GetComponent<SimpleSmoothMouseLook> ()); // We don't want the mouse look going when you're clicking round the win menu
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 	}
 
 	public void WinGame () {
+		player.GetComponent<Rigidbody> ().isKinematic = true;
 		EndGame ();
 		PlayerPrefs.SetInt ("HasWonLevel" + SceneManager.GetActiveScene ().buildIndex, 1);
 		winMenu.SetActive (true);
 	}
 
 	public void LoseGame () {
+		// fall effect
+		player.GetComponent<Rigidbody>().useGravity = true;
+		player.GetComponent<Rigidbody>().freezeRotation = false;
 		EndGame ();
 		loseMenu.SetActive(true);
 	}

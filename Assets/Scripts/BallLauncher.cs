@@ -54,6 +54,8 @@ public class BallLauncher : MonoBehaviour {
 		ball = Instantiate (ballPrefab, transform.position, ballPrefab.transform.rotation).GetComponent<Rigidbody> ();
 		ball.useGravity = true;
 		ball.velocity = CalculateLaunchData ().initialVelocity;
+
+		GetComponent<AudioSource> ().Play ();
 	}
 
 	LaunchData CalculateLaunchData() {

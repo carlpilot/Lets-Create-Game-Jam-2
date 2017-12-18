@@ -17,7 +17,12 @@ public class Fireball : MonoBehaviour {
 				col.GetComponent<Rigidbody> ().AddExplosionForce (explosionForce, transform.position, explosionRadius);
 			}
 		}
+		GetComponent<AudioSource> ().Play ();
+		GetComponent<MeshRenderer> ().enabled = false;
+		GetComponent<Collider> ().enabled = false;
+		GetComponent<ParticleSystem> ().Stop ();
+		GetComponentInChildren<ParticleSystem> ().Play ();
 
-		Destroy (this.gameObject);
+		Destroy (this.gameObject, GetComponent<AudioSource> ().clip.length);
 	}
 }

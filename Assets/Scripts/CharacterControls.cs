@@ -52,6 +52,12 @@ public class CharacterControls : MonoBehaviour {
 		grounded = false;
 	}
 
+	void OnCollisionEnter (Collision col) {
+		if (Mathf.Abs(col.relativeVelocity.y) > 6f) {
+			GameManager.instance.LoseGame ();
+		}
+	}
+
 	void OnCollisionStay () {
 		grounded = true;    
 	}

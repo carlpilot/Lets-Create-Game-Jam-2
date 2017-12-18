@@ -7,21 +7,23 @@ public class Teleport : MonoBehaviour {
 	public GameObject teleporter;
 	Vector3 lastPosition;
 
-	void Start () {
-		
-	}
-
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
 			RaycastHit hit;
-			if (Physics.Raycast (Camera.main.transform.position, Camera.main.transform.forward, out hit)) {
+			Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+			if (Physics.Raycast (ray, out hit)) {
 				if (hit.transform.tag == "Teleporter") {
 					lastPosition = transform.position;
 
 					if (Vector3.Distance (transform.position, hit.transform.position) > 10f) {
 						if (hit.transform.GetComponent<Teleporter> ().teleporterActive) {
 							transform.position = hit.transform.position + Vector3.up;
+							GetComponent<Rigidbody> ().velocity = Vector3.zero; // To prevent fall-dying from teleportation
+						} else {
+							print ("Teleporter inactive");
 						}
+					} else {
+						print ("Teleporter too close");
 					}
 
 					/*
@@ -35,6 +37,8 @@ public class Teleport : MonoBehaviour {
 						Destroy (hit.transform.gameObject);
 					}
 					*/
+				} else {
+					//print ("Hit is not teleporter. Hit is: " + hit.transform.gameObject.name);
 				}
 			}
 		}

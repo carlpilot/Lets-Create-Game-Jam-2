@@ -12,7 +12,8 @@ public class BallLauncher : MonoBehaviour {
 	Rigidbody ball;
 	public Transform target;
 
-	public float h = 25;
+	public float height = 25;
+	float h;
 	public float gravity = -18;
 	public float minFrequency = 5f;
 	public float maxFrequency = 12f;
@@ -31,6 +32,10 @@ public class BallLauncher : MonoBehaviour {
 			h = (transform.position.y > target.position.y) ? 0f : transform.position.y - target.position.y;
 
 		InvokeRepeating ("Launch", Random.Range (2f, minFrequency), Random.Range (minFrequency, maxFrequency));
+	}
+
+	void Update () {
+		h = (transform.position.y > target.position.y) ? height : transform.position.y - target.position.y + 1f;
 	}
 
 	/*

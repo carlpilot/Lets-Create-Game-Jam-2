@@ -628,11 +628,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\tThe goal of the game is to make it to the finish line. Activate the bridges
-    with the colour of power crystal indicated on the bridge sign. If there are multiple
-    colours on the sign, all are required to open the bridge.\n\tDo be careful of
-    fireballs from the guard towers, a hit could knock you off the islands.\n\tLeft-click
-    on teleporters to teleport to them, and power crystals to activate them."
+  m_Text: "\tWASD or arrows to move, LEFT-SHIFT to run and SPACE to jump.\n\tYour
+    goal is to make it to the finish line. Activate the bridges with the colour of
+    power crystal indicated on the bridge sign. If there are multiple colours on the
+    sign, all are required to open the bridge.\n\tDo be careful of fireballs from
+    the guard towers, a hit could knock you off the islands.\n\tLeft-click on teleporters
+    to teleport to them, and power crystals to activate them."
 --- !u!222 &718754960
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2347,7 +2348,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 12.5}
-  m_SizeDelta: {x: -100, y: -125}
+  m_SizeDelta: {x: -40, y: -65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2043760359
 MonoBehaviour:

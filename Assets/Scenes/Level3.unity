@@ -10839,7 +10839,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f0240676faac4eb9bf59c1c1114c5e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.55
+      value: 2.3599997
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4f0240676faac4eb9bf59c1c1114c5e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12055,7 +12055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1574430565
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12133,11 +12133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb781acb7764c405b986aab326460882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  gravity: 2.5
+  speed: 4
+  gravity: 9.8
   maxVelocityChange: 10
   canJump: 1
-  jumpHeight: 2
+  jumpHeight: 1
   sprintMultiplier: 2
 --- !u!54 &1574430570
 Rigidbody:
@@ -13348,14 +13348,13 @@ GameObject:
   - component: {fileID: 1731530609}
   - component: {fileID: 1731530608}
   - component: {fileID: 1731530613}
-  - component: {fileID: 1731530614}
   m_Layer: 0
   m_Name: Scene Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1731530608
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13419,8 +13418,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1731530607}
-  m_LocalRotation: {x: -0.1083244, y: 0.8549664, z: -0.19838314, w: -0.46684304}
-  m_LocalPosition: {x: 79.312164, y: 31.966324, z: 38.917835}
+  m_LocalRotation: {x: -0.22835991, y: -0.35104892, z: 0.08870384, w: -0.9037412}
+  m_LocalPosition: {x: -16.063602, y: 15.679621, z: -17.607979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13442,7 +13441,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stopNaNPropagation: 1
-  antialiasingMode: 0
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -13481,14 +13480,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!45 &1731530614
-Skybox:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1731530607}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 9dd2dde64d2484a47b924a2018a33529, type: 2}
 --- !u!1 &1748092743
 GameObject:
   m_ObjectHideFlags: 0
@@ -14977,7 +14968,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4157888892136040, guid: 286037f47409e4b5abc875a1db393fb6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -9.06
+      value: 2.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 4157888892136040, guid: 286037f47409e4b5abc875a1db393fb6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -16112,7 +16103,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2133058581}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 1.79, z: 0}
   m_LocalScale: {x: 5, y: 5.000002, z: 5.000002}
   m_Children:
   - {fileID: 223976031}

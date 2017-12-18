@@ -35,7 +35,7 @@ public class BallLauncher : MonoBehaviour {
 	}
 
 	void Update () {
-		h = (transform.position.y > target.position.y) ? height : transform.position.y - target.position.y + 1f;
+		h = (transform.position.y > target.position.y) ? height : target.position.y - transform.position.y + height + 0.1f;
 	}
 
 	/*

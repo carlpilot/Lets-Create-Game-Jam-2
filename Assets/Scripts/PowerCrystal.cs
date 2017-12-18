@@ -20,7 +20,7 @@ public class PowerCrystal : MonoBehaviour {
 			if (Physics.Raycast (Camera.main.transform.position, Camera.main.transform.forward, out hit, 10f)) {
 				if (hit.transform.position.Equals (this.transform.position)) { // transform.position is somehow more accurate than checking transforms
 					// hit is this gameobject
-					isOn = !isOn;
+					Toggle ();
 				}
 			}
 		}
@@ -35,5 +35,10 @@ public class PowerCrystal : MonoBehaviour {
 			ba.isOn = isOn;
 			ba.SetMaterial (isOn ? on : off);
 		}
+	}
+
+	public void Toggle () {
+		isOn = !isOn;
+		GetComponent<AudioSource> ().Play ();
 	}
 }

@@ -53,7 +53,7 @@ public class CharacterControls : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
-		if (Mathf.Abs(col.relativeVelocity.y) > 6f) {
+		if (Mathf.Abs(col.relativeVelocity.y) > 12f) {
 			GameManager.instance.LoseGame ();
 		}
 	}

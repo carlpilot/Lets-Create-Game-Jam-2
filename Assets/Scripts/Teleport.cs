@@ -17,6 +17,7 @@ public class Teleport : MonoBehaviour {
 
 					if (Vector3.Distance (transform.position, hit.transform.position) > 10f) {
 						if (hit.transform.GetComponent<Teleporter> ().teleporterActive) {
+							GetComponent<AudioSource> ().Play ();
 							transform.position = hit.transform.position + Vector3.up;
 							GetComponent<Rigidbody> ().velocity = Vector3.zero; // To prevent fall-dying from teleportation
 						} else {

@@ -16,6 +16,7 @@ public class TeleporterActivator : MonoBehaviour {
 				if (hit.transform == transform) {
 					// Hit this TeleporterActivator
 					isOn = !isOn;
+					GetComponent<AudioSource> ().Play ();
 				}
 			}
 		}

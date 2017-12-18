@@ -20,9 +20,11 @@ public class Fireball : MonoBehaviour {
 		GetComponent<AudioSource> ().Play ();
 		GetComponent<MeshRenderer> ().enabled = false;
 		GetComponent<Collider> ().enabled = false;
-		GetComponent<ParticleSystem> ().Stop ();
+		Destroy (GetComponent<Rigidbody> ());
+		Destroy (GetComponent<ParticleSystem> ());
 		GetComponentInChildren<ParticleSystem> ().Play ();
 
-		Destroy (this.gameObject, GetComponent<AudioSource> ().clip.length);
+		float timeToDestroy = (GetComponentInChildren<ParticleSystem> ().main.duration > GetComponent<AudioSource> ().clip.length) ? GetComponentInChildren<ParticleSystem> ().main.duration : GetComponent<AudioSource> ().clip.length;
+		Destroy (this.gameObject, timeToDestroy);
 	}
 }

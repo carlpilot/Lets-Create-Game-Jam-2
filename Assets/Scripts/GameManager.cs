@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (SceneManager.GetActiveScene ().name.ToUpper ().Contains ("LEVEL")) {
+		if (SceneManager.GetActiveScene ().name.ToUpper ().Contains ("LEVEL") && SceneManager.GetActiveScene ().name.ToUpper () != "LEVELSELECTION") {
 			if (player.transform.position.y < -0.5f || player.transform.position.sqrMagnitude > 20000) {
 				LoseGame ();
 			}

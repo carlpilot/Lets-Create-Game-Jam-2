@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 1747596083847376, guid: d99482bec35a844d0bfb6ce036341baa, type: 2}
   target: {fileID: 0}
-  height: 25
+  height: 0
   gravity: -6
   minFrequency: 8
   maxFrequency: 12

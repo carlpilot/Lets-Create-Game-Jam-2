@@ -16,7 +16,7 @@ public class HighScores : MonoBehaviour {
 	}
 
 	public static WWW GetScores (int level) {
-		string url = "http://dreamlo.com/lb/" + SecretCode.Public (level) + "/pipe/20";
+		string url = "http://dreamlo.com/lb/" + SecretCode.Public (level) + "/pipe/100";
 		return new WWW (url);
 	}
 

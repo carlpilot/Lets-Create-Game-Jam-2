@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 0}
   loseMenu: {fileID: 0}
+  timer: {fileID: 0}
+  highScoreDisplay: {fileID: 0}
   nextLevelButtonTitle: {fileID: 0}
 --- !u!114 &81178554
 MonoBehaviour:

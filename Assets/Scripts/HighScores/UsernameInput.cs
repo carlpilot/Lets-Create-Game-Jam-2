@@ -21,7 +21,7 @@ public class UsernameInput : MonoBehaviour {
 	}
 
 	public void CheckLoadLevel (int level) {
-		if (PlayerPrefs.HasKey ("PlayerUsername")) {
+		if (PlayerPrefs.HasKey ("PlayerUsername") && usernameInput.text.Length >= 1) {
 			GameManager.instance.LoadLevel (level);
 		} else {
 			pleaseEnterUsername.SetActive (true);

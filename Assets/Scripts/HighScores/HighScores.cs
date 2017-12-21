@@ -7,7 +7,6 @@ public class HighScores : MonoBehaviour {
 	public static void SaveScore (int level, string player, float time) {
 		// Scores of 1 are used since time is the main scoring factors
 		string url = "http://dreamlo.com/lb/" + SecretCode.Private (level) + "/add/" + WWW.EscapeURL (player) + "/" + (100000 - Mathf.RoundToInt(time * 100f));
-		print (url);
 		new WWW (url);
 	}
 

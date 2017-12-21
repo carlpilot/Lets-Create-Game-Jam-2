@@ -18,7 +18,7 @@ public class Teleporter : MonoBehaviour {
 	}
 
 	void Update () {
-		if (teleporterActive) {
+		if (teleporterActive && Vector3.Distance (transform.position, GameObject.FindGameObjectWithTag ("Player").transform.position) > 10f) {
 			light.enabled = true;
 			if (!particleSystem.isPlaying) {
 				particleSystem.Play ();

@@ -1101,6 +1101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 1951178240}
   loseMenu: {fileID: 41376316}
+  timer: {fileID: 0}
+  highScoreDisplay: {fileID: 0}
   nextLevelButtonTitle: {fileID: 230944870}
 --- !u!1001 &201403899
 Prefab:
@@ -7383,7 +7385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 125}
+  m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911072026
@@ -8261,7 +8263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 125}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023136282

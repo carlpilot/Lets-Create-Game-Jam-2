@@ -7,13 +7,7 @@ public class Timer : MonoBehaviour {
 
 	public Text timerText;
 	public float timerSpeed = 1.0f;
-	float time = 0.0f;
-
-	public float getTime {
-		get {
-			return time;
-		}
-	}
+	public float time = 0.0f;
 
 	void Update () {
 		if (GameManager.instance.isRunning) {

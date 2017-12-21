@@ -8,6 +8,14 @@ public class HighScoreDisplay : MonoBehaviour {
 	public GameObject scrollViewContent;
 
 	public void ShowScores (WWW www) {
-		print (www.text);
+		StartCoroutine (showScores (www));
+	}
+
+	IEnumerator showScores (WWW www) {
+		while (!www.isDone) {
+			yield return null;
+		}
+		//print (www.text);
+		StartCoroutine (showScores (new WWW (www.url)));
 	}
 }

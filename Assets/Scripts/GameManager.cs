@@ -76,15 +76,23 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void WinGame () {
+
+		if (!isRunning)
+			return;
+
 		player.GetComponent<Rigidbody> ().isKinematic = true;
 		EndGame ();
 		PlayerPrefs.SetInt ("HasWonLevel" + SceneManager.GetActiveScene ().buildIndex, 1);
 		winMenu.SetActive (true);
-		HighScores.SaveScore (SceneManager.GetActiveScene ().buildIndex, PlayerPrefs.GetString ("PlayerUsername"), timer.getTime);
+		HighScores.SaveScore (SceneManager.GetActiveScene ().buildIndex, PlayerPrefs.GetString ("PlayerUsername"), timer.time);
 		highScoreDisplay.ShowScores (HighScores.GetScores (SceneManager.GetActiveScene ().buildIndex));
 	}
 
 	public void LoseGame () {
+
+		if (!isRunning)
+			return;
+
 		// fall effect
 		player.GetComponent<Rigidbody>().useGravity = true;
 		player.GetComponent<Rigidbody>().freezeRotation = false;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,11 +10,22 @@ public class GameManager : MonoBehaviour {
 	GameObject player;
 	public GameObject winMenu;
 	public GameObject loseMenu;
-	public UnityEngine.UI.Text nextLevelButtonTitle;
+	public Timer timer;
+	public HighScoreDisplay highScoreDisplay;
+	public Text nextLevelButtonTitle;
+
+	bool _isRunning = false;
+
+	public bool isRunning {
+		get {
+			return _isRunning;
+		}
+	}
 
 	void Start () {
 		instance = this;
 		player = GameObject.FindGameObjectWithTag ("Player");
+		_isRunning = true;
 	}
 
 	public void LoadLevel (int level) {
@@ -60,6 +72,7 @@ public class GameManager : MonoBehaviour {
 		Destroy (Camera.main.GetComponent<SimpleSmoothMouseLook> ()); // We don't want the mouse look going when you're clicking round the win menu
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
+		_isRunning = false;
 	}
 
 	public void WinGame () {
@@ -67,6 +80,8 @@ public class GameManager : MonoBehaviour {
 		EndGame ();
 		PlayerPrefs.SetInt ("HasWonLevel" + SceneManager.GetActiveScene ().buildIndex, 1);
 		winMenu.SetActive (true);
+		HighScores.SaveScore (SceneManager.GetActiveScene ().buildIndex, PlayerPrefs.GetString ("PlayerUsername"), timer.getTime);
+		highScoreDisplay.ShowScores (HighScores.GetScores (SceneManager.GetActiveScene ().buildIndex));
 	}
 
 	public void LoseGame () {

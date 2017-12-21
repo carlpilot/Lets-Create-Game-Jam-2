@@ -38,19 +38,13 @@ public class BallLauncher : MonoBehaviour {
 		h = (transform.position.y > target.position.y) ? height : target.position.y - transform.position.y + height + 0.1f;
 	}
 
-	/*
-	void Update() {
-		if (Input.GetKeyDown (KeyCode.Return)) {
-			Launch ();
-		}
-
-		if (debugPath) {
-			DrawPath ();
-		}
-	}
-	*/
-
 	void Launch() {
+
+		// Don't launch if the game isn't running
+		if (!GameManager.instance.isRunning) {
+			return;
+		}
+
 		ball = Instantiate (ballPrefab, transform.position, ballPrefab.transform.rotation).GetComponent<Rigidbody> ();
 		ball.useGravity = true;
 		ball.velocity = CalculateLaunchData ().initialVelocity;
